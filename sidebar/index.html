@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<script><?php
+$db_host = 'ketest.000webhostapp.com'; // Server Name
+$db_user = 'id5604274_root'; // Username
+$db_pass = 'pillunvittu'; // Password
+$db_name = 'id5604274_testsys2'; // Database Name
+
+ini_set('default_charset', 'utf-8');
+
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+if (!$conn) {
+    die ('Failed to connect to MySQL: ' . mysqli_connect_error());  
+}
+
+$sql = 'SELECT * 
+        FROM test_run_log';
+        
+$query = mysqli_query($conn, $sql);
+
+if (!$query) {
+    die ('SQL Error: ' . mysqli_error($conn));
+}
+?>
+    
+</script>
+<style>
+background-image: url("hyvakiertaa.jpg");
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>KE-Test-sidebar</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body background="hyvakiertaa.jpg">
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        Etusivu
+                    </a>
+                </li>
+                <li>
+                    <a href="..\reportico">Raportit</a>
+                </li>
+                <li>
+                    <a href="..\tabletest.php">Kaikki tapaukset</a>
+                </li>
+                <li>
+                    <a href="..\not_passed.php">Avoinna olevat bugit</a>
+                </li>
+                <li>
+                    <a href="..\insert_sivu.php">Syötä uusi regressiotapaus</a>
+                </li>
+                <li>
+                    <a href="#">Raportoi testauksesta</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+        <div align="center" class="container">
+                <h1 style="color:white">KE:n testaukset</h1>
+</div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
